@@ -73,13 +73,13 @@ const CreateMovie = () => {
         !movieData.name ||
         !movieData.year ||
         !movieData.detail ||
-        !movieData.cast ||
-        !selectedImage
-      ) {
+        !movieData.cast 
+        
+       ) {
         toast.error("Please fill all required fields");
         return;
       }
-
+console.log("all don e");
       let uploadedImagePath = null;
 
       if (selectedImage) {
@@ -90,15 +90,11 @@ const CreateMovie = () => {
 
         if (uploadImageResponse.data) {
           uploadedImagePath = uploadImageResponse.data.image;
-        } else {
-          console.error("Failed to upload image: ", uploadImageErrorDetails);
-          toast.error("Failed to upload image");
-          return;
-        }
+        }  
 
         await createMovie({
           ...movieData,
-          image: uploadedImagePath,
+         // image: uploadedImagePath,
         });
 
         navigate("/admin/movies-list");
