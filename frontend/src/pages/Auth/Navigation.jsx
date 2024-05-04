@@ -31,63 +31,58 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style={{ height: '50px', paddingTop: '5px', paddingBottom: '5px' }}>
       <div className="container">
-        <Link to="/" className="navbar-brand">
-          <AiOutlineHome className="mr-2" size={26} />
+        <Link to="/" className="navbar-brand" style={{ fontSize: '1rem' }}>
+          <AiOutlineHome className="mr-2" size={18} />
           <span className="d-none d-md-inline">Home</span>
         </Link>
-   
 
-        { /*=============================================*/}
-        
-  
-        <Link to="/movies" className="navbar-brand">
-          <MdOutlineLocalMovies className="mr-2" size={26} />
+        <Link to="/movies" className="navbar-brand" style={{ fontSize: '1rem' }}>
+          <MdOutlineLocalMovies className="mr-2" size={14} />
           <span className="d-none d-md-inline">Search</span>
         </Link>
-     
         
-          {userInfo ? (
-            <div className="dropdown">
-              <button
-                onClick={toggleDropdown}
-                className="btn btn-secondary dropdown-toggle"
-                type="button"
-                id="dropdownMenuButton"
-                aria-expanded="false"
-              >
-                {userInfo.username}
-              </button>
-              <ul
-                className={`dropdown-menu ${dropdownOpen ? 'show' : ''}`}
-                aria-labelledby="dropdownMenuButton"
-              >
-                {userInfo.isAdmin && (
-                  <li>
-                    <Link to="/admin/movies/dashboard" className="dropdown-item">Dashboard</Link>
-                  </li>
-                )}
+        {userInfo ? (
+          <div className="dropdown">
+            <button
+              onClick={toggleDropdown}
+              className="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              aria-expanded="false"
+              style={{ fontSize: '1rem' }}
+            >
+              {userInfo.username}
+            </button>
+            <ul
+              className={`dropdown-menu ${dropdownOpen ? 'show' : ''}`}
+              aria-labelledby="dropdownMenuButton"
+            >
+              {userInfo.isAdmin && (
                 <li>
-                  <Link to="/profile" className="dropdown-item">Profile</Link>
+                  <Link to="/admin/movies/dashboard" className="dropdown-item">Dashboard</Link>
                 </li>
-                <li>
-                  <button onClick={logoutHandler} className="dropdown-item">Logout</button>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link to="/login" className="nav-link">
-                  <AiOutlineLogin className="mr-2" size={26} />
-                  <span className="d-none d-md-inline">LOGIN</span>
-                </Link>
+              )}
+              <li>
+                <Link to="/profile" className="dropdown-item">Profile</Link>
               </li>
-
+              <li>
+                <button onClick={logoutHandler} className="dropdown-item">Logout</button>
+              </li>
             </ul>
-          )}
-        </div>
+          </div>
+        ) : (
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link to="/login" className="nav-link" style={{ fontSize: '1rem' }}>
+                <AiOutlineLogin className="mr-2" size={14} />
+                <span className="d-none d-md-inline">LOGIN</span>
+              </Link>
+            </li>
+          </ul>
+        )}
+      </div>
     </nav>
   );
 };
