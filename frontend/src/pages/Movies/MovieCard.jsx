@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const MovieCard = ({ movie }) => {
+  // Define the backend image URL
+  const backendImageUrl = `http://localhost:5173/backend/upload/${movie.image}`;
+
   return (
     <div key={movie._id} className="relative group m-[2rem]">
       <Link to={`/movies/${movie._id}`}>
         <img
-          src={movie.image}
+          src={backendImageUrl} // Use the backend image URL here
           alt={movie.name}
           className="w-[20rem] h-[20rem] rounded m-0 p-0 transition duration-300 ease-in-out transform group-hover:opacity-50"
         />
@@ -14,6 +18,7 @@ const MovieCard = ({ movie }) => {
       <p className="absolute top-[85%] left-[2rem] right-0 bottom-0 opacity-0 transition duration-300 ease-in-out group-hover:opacity-100">
         {movie.name}
       </p>
+      
     </div>
   );
 };
