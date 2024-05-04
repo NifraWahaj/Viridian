@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AiOutlineHome, AiOutlineLogin, AiOutlineUserAdd } from "react-icons/ai";
+import { AiOutlineHome, AiOutlineLogin } from "react-icons/ai";
 import { MdOutlineLocalMovies } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -32,16 +32,19 @@ const Navigation = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style={{ height: '50px', paddingTop: '5px', paddingBottom: '5px' }}>
-      <div className="container">
-        <Link to="/" className="navbar-brand" style={{ fontSize: '1rem' }}>
-          <AiOutlineHome className="mr-2" size={18} />
-          <span className="d-none d-md-inline">Home</span>
-        </Link>
+      <div className="container justify-content-center">
+        
+      <Link to="/" className="navbar-brand" style={{ fontSize: '1rem', marginRight: '5%', display: 'flex', alignItems: 'center' }}>
+  <AiOutlineHome className="mr-2" size={22} />
+  <span className="d-none d-md-inline">Home</span>
+</Link>
 
-        <Link to="/movies" className="navbar-brand" style={{ fontSize: '1rem' }}>
-          <MdOutlineLocalMovies className="mr-2" size={14} />
-          <span className="d-none d-md-inline">Search</span>
-        </Link>
+<Link to="/movies" className="navbar-brand" style={{ fontSize: '1rem', marginRight: '70%', display: 'flex', alignItems: 'center' }}>
+  <MdOutlineLocalMovies className="mr-2" size={22} />
+  <span className="d-none d-md-inline">Search</span>
+</Link>
+
+
         
         {userInfo ? (
           <div className="dropdown">
@@ -51,7 +54,7 @@ const Navigation = () => {
               type="button"
               id="dropdownMenuButton"
               aria-expanded="false"
-              style={{ fontSize: '1rem' }}
+              style={{ fontSize: '1rem', marginRight: '20px' }}
             >
               {userInfo.username}
             </button>
@@ -74,12 +77,13 @@ const Navigation = () => {
           </div>
         ) : (
           <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link to="/login" className="nav-link" style={{ fontSize: '1rem' }}>
-                <AiOutlineLogin className="mr-2" size={14} />
-                <span className="d-none d-md-inline">LOGIN</span>
-              </Link>
-            </li>
+           <li className="nav-item">
+  <Link to="/login" className="nav-link" style={{ fontSize: '1rem', display: 'flex', alignItems: 'center' }}>
+    <AiOutlineLogin className="mr-2" size={20} />
+    <span className="d-none d-md-inline">LOGIN</span>
+  </Link>
+</li>
+
           </ul>
         )}
       </div>

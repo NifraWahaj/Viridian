@@ -5,7 +5,8 @@ import Loader from "../../component/Loader";
 import { setCredentials } from "../../redux/features/auth/authSlice";
 import { useLoginMutation } from "../../redux/api/users";
 import { toast } from "react-toastify";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS for styling
+import './login.css'; // Import the CSS file
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -43,7 +44,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 main-cont">
       <div className="row justify-content-center">
         <div className="col-md-6">
           <div className="card">
@@ -62,10 +63,6 @@ const Login = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                  
-                    hover={{
-                      borderColor: "#75c6a6",
-                    }}
                   />
                 </div>
                 <div className="mb-3">
@@ -80,43 +77,31 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                   
-                    hover={{
-                      borderColor: "#75c6a6",
-                    }}
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="btn btn-primary btn-block"
+                  className="btn btn-primary btn-block login-button"
                   disabled={loading}
-                  style={{
-                    backgroundColor: "#3e947e",
-                    borderColor: "#3e947e",
-                    boxShadow: "0 0.5rem 1rem rgba(62, 148, 126, 0.15)",
-                  }}
-                  hover={{
-                    backgroundColor: "#75c6a6",
-                    borderColor: "#75c6a6",
-                  }}
                 >
-                  {loading ? "Signing In..." : "Sign In"}
+                  {loading ? "Logging In..." : "Log In"}
                 </button>
                 {loading && <Loader />}
               </form>
               <div className="mt-3 text-center">
-                <p>
-                  New Customer?{" "}
-                  <Link
-                    to={redirect ? `/register?redirect=${redirect}` : "/register"}
-                    className="text-primary"
-                    style={{ color: "#3e947e" }}
-                    hover={{ color: "#75c6a6" }}
-                  >
-                    Register
-                  </Link>
-                </p>
+              <div className="mt-3 text-center">
+  <p>
+    New User?{" "}
+    <Link
+      to={redirect ? `/register?redirect=${redirect}` : "/register"}
+      className="login-link"
+    >
+      Register
+    </Link>
+  </p>
+</div>
+
               </div>
             </div>
           </div>

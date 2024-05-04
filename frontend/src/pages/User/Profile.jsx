@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 import Loader from "../../component/Loader";
 import { useProfileMutation } from "../../redux/api/users";
 import { setCredentials } from "../../redux/features/auth/authSlice";
+import './profile.css'; // Import the CSS file
+
 
 const Profile = () => {
   const [username, setUsername] = useState("");
@@ -98,13 +100,12 @@ const Profile = () => {
               </div>
 
               <div className="d-grid gap-2">
-                <button
-                  type="submit"
-                  className="btn btn-primary mt-3"
-                  style={{ backgroundColor: '#40826D' }}
-                >
-                  Update
-                </button>
+              <button
+      type="submit"
+      className="btn btn-primary mt-3 update-button"
+    >
+      Update
+    </button>
 
                 {loadingUpdateProfile && <Loader />}
               </div>

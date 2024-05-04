@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
+// register.jsx
+import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../component/Loader";
 import { setCredentials } from "../../redux/features/auth/authSlice";
 import { useRegisterMutation } from "../../redux/api/users";
 import { toast } from "react-toastify";
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS for styling
+import './register.css'; // Import the CSS file
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -48,105 +51,93 @@ const Register = () => {
   };
 
   return (
-    <div className="pl-[10rem] flex flex-wrap">
-      <div className="mr-[4rem] mt-[5rem]">
-        <h1 className="text-2xl font-semibold mb-4">Register</h1>
+    <div className="container mt-5 main-cont">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <div className="card">
+            <div className="card-body">
+              <h2 className="card-title text-center mb-4">Register</h2>
+              <form onSubmit={submitHandler}>
+                <div className="mb-3">
+                  <label htmlFor="name" className="form-label">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    className="form-control"
+                    placeholder="Enter Name"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="form-control"
+                    placeholder="Enter Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    className="form-control"
+                    placeholder="Enter Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="confirmPassword" className="form-label">
+                    Confirm Password
+                  </label>
+                  <input
+                    type="password"
+                    id="confirmPassword"
+                    className="form-control"
+                    placeholder="Confirm Password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  />
+                </div>
 
-        <form onSubmit={submitHandler} className="container w-[40rem]">
-          <div className="my-[2rem]">
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-white"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              className="mt-1 p-2 border rounded w-full"
-              placeholder="Enter Name"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
+                <button 
+                  disabled={isLoading}
+                  type="submit"
+                  className="btn btn-primary btn-block register-button "
+                 
+                >
+                  {isLoading ? "Registering..." : "Register"}
+                </button>
+                {isLoading && <Loader />}
+              </form>
+              <div className="mt-4 text-center">
+                <p>
+                  Already have an account?{" "}
+                  <Link
+                    to={redirect ? `/login?redirect=${redirect}` : "/login"}
+                    className="login-link"
+                  >
+                    Login
+                  </Link>
+                </p>
+              </div>
+            </div>
           </div>
-          <div className="my-[2rem]">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-white"
-            >
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="mt-1 p-2 border rounded w-full"
-              placeholder="Enter Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="my-[2rem]">
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-white"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              className="mt-1 p-2 border rounded w-full"
-              placeholder="Enter Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className="my-[2rem]">
-            <label
-              htmlFor="confirmPassword"
-              className="block text-sm font-medium text-white"
-            >
-              Confirm Password
-            </label>
-            <input
-              type="password"
-              id="confirmPassword"
-              className="mt-1 p-2 border rounded w-full"
-              placeholder="Confirm Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </div>
-
-          <button
-            disabled={isLoading}
-            type="submit"
-            className="bg-teal-500 text-white px-4 py-2 rounded cursor-pointer my-[1rem]"
-          >
-            {isLoading ? "Registering..." : "Register"}
-          </button>
-
-          {isLoading && <Loader />}
-        </form>
-
-        <div className="mt-4">
-          <p className="text-white">
-            Already have an account?{" "}
-            <Link
-              to={redirect ? `/login?redirect=${redirect}` : "/login"}
-              className="text-teal-500 hover:underline"
-            >
-              Login
-            </Link>
-          </p>
         </div>
       </div>
-      <img
-        src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt=""
-        className="h-[65rem] w-[55%] xl:block md:hidden sm:hidden rounded-lg"
-      />
     </div>
   );
 };
+
 export default Register;
