@@ -1,6 +1,11 @@
+import React from "react";
+//DONE
 const Loader = () => {
   return (
-    <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-teal-500 border-opacity-50"></div>
+    <div className="spinner-border text-teal" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
   );
 };
+
 export default Loader;

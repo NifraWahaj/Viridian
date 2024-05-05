@@ -8,7 +8,7 @@ import { useRegisterMutation } from "../../redux/api/users";
 import { toast } from "react-toastify";
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS for styling
 import './register.css'; // Import the CSS file
-
+//DONE
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");

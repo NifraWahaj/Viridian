@@ -1,0 +1,7 @@
+.sidebar-btn {
+    height: 50px; /* Adjust height as needed */
+    line-height: 50px; /* Center text vertically */
+    border-radius: 0; /* Remove rounded corners */
+    width: 100%; /* Adjust width as needed */
+}
+  

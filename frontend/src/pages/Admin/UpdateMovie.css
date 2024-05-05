@@ -1,0 +1,18 @@
+/* updateMovie.css */
+
+.custom-btn {
+  background-color: #40826D; /* Default background color */
+  border-color: #40826D; /* Default border color */
+  box-shadow: 0 0.5rem 1rem rgba(62, 148, 126, 0.15); /* Default box shadow */
+  color: #ffffff; /* Text color */
+  }
+  
+  .custom-btn:hover {
+    background-color: #1b4b3c; /* Change background color on hover */
+    border-color: #1b4b3c; 
+  }
+  
+
+.outer-container{
+  margin-top: 5rem !important;
+}

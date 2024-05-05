@@ -1,0 +1,20 @@
+/* createMovie.css */
+
+.create-movie-button {
+    background-color: #40826D;
+    border-color: #40826D;
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .create-movie-button:hover {
+    background-color: #1b4b3c;
+    border-color: #1b4b3c;
+  }
+
+  .create-movie-container {
+    margin-top:5% !important; /* Adjust the margin-top value as needed */
+  }

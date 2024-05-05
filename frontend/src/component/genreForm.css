@@ -1,0 +1,31 @@
+/* genreForm.css */
+
+.custom-btn {
+  background-color: #40826D;
+  border-color: #40826D;
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-btn:hover {
+  background-color: #1b4b3c;
+  border-color: #1b4b3c;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  background-color: #bd2130;
+  border-color: #bd2130;
+}

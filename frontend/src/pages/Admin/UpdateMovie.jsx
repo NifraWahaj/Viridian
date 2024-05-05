@@ -7,7 +7,9 @@ import {
   useDeleteMovieMutation,
 } from "../../redux/api/movies";
 import { toast } from "react-toastify";
+import "./UpdateMovie.css"; // Import CSS file
 
+//DONE
 const UpdateMovie = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -107,75 +109,59 @@ const UpdateMovie = () => {
     }
   };
 
-  return (
-    <div className="container flex justify-center items-center mt-4">
+  return  (
+<div className="container mt-4 outer-container" style={{ maxWidth: "55rem"  }}>
       <form>
-        <p className="text-green-200 w-[50rem] text-2xl mb-4">Update Movie</p>
+      <h2 className="text-center mb-4">Update Movie</h2>
 
-        <div className="mb-4">
-          <label className="block">
-            Name:
-            <input
-              type="text"
-              name="name"
-              value={movieData.name}
-              onChange={handleChange}
-              className="border px-2 py-1 w-full"
-            />
-          </label>
+        <div className="mb-3">
+          <label className="form-label">Name:</label>
+          <input
+            type="text"
+            name="name"
+            value={movieData.name}
+            onChange={handleChange}
+            className="form-control"
+          />
         </div>
-        <div className="mb-4">
-          <label className="block">
-            Year:
-            <input
-              type="number"
-              name="year"
-              value={movieData.year}
-              onChange={handleChange}
-              className="border px-2 py-1 w-full"
-            />
-          </label>
+        <div className="mb-3">
+          <label className="form-label">Year:</label>
+          <input
+            type="number"
+            name="year"
+            value={movieData.year}
+            onChange={handleChange}
+            className="form-control"
+          />
         </div>
-        <div className="mb-4">
-          <label className="block">
-            Detail:
-            <textarea
-              name="detail"
-              value={movieData.detail}
-              onChange={handleChange}
-              className="border px-2 py-1 w-full"
-            />
-          </label>
+        <div className="mb-3">
+          <label className="form-label">Detail:</label>
+          <textarea
+            name="detail"
+            value={movieData.detail}
+            onChange={handleChange}
+            className="form-control"
+          ></textarea>
         </div>
-        <div className="mb-4">
-          <label className="block">
-            Cast (comma-separated):
-            <input
-              type="text"
-              name="cast"
-              value={movieData.cast.join(", ")}
-              onChange={(e) =>
-                setMovieData({ ...movieData, cast: e.target.value.split(", ") })
-              }
-              className="border px-2 py-1 w-full"
-            />
-          </label>
+        <div className="mb-3">
+          <label className="form-label">Cast (comma-separated):</label>
+          <input
+            type="text"
+            name="cast"
+            value={movieData.cast.join(", ")}
+            onChange={(e) =>
+              setMovieData({ ...movieData, cast: e.target.value.split(", ") })
+            }
+            className="form-control"
+          />
         </div>
 
-        <div className="mb-4">
+        <div className="mb-3">
           <label
             style={
               !selectedImage
-                ? {
-                    border: "1px solid #888",
-                    borderRadius: "5px",
-                    padding: "8px",
-                  }
-                : {
-                    border: "0",
-                    borderRadius: "0",
-                    padding: "0",
-                  }
+                ? { border: "1px solid #888", borderRadius: "5px", padding: "8px" }
+                : { border: "0", borderRadius: "0", padding: "0" }
             }
           >
             {!selectedImage && "Upload Image"}
@@ -191,7 +177,7 @@ const UpdateMovie = () => {
         <button
           type="button"
           onClick={handleUpdateMovie}
-          className="bg-teal-500 text-white px-4 py-2 rounded"
+          className="custom-btn"
           disabled={isUpdatingMovie || isUploadingImage}
         >
           {isUpdatingMovie || isUploadingImage ? "Updating..." : "Update Movie"}
@@ -200,7 +186,8 @@ const UpdateMovie = () => {
         <button
           type="button"
           onClick={handleDeleteMovie}
-          className="bg-red-500 text-white px-4 py-2 rounded ml-2"
+          className="btn btn-danger ms-2"
+          
           disabled={isUpdatingMovie || isUploadingImage}
         >
           {isUpdatingMovie || isUploadingImage ? "Deleting..." : "Delete Movie"}

@@ -10,6 +10,9 @@ import { toast } from "react-toastify";
 import GenreForm from "../../component/GenreForm";
 import Modal from "../../component/Modal";
 
+import "./GenreList.css";
+
+
 const GenreList = () => {
   const { data: genres, refetch } = useFetchGenresQuery();
   const [name, setName] = useState("");
@@ -94,48 +97,51 @@ const GenreList = () => {
   };
 
   return (
-    <div className="ml-[10rem] flex flex-col md:flex-row">
-      <div className="md:w-3/4 p-3">
-        <h1 className="h-12">Manage Genres</h1>
-        <GenreForm
-          value={name}
-          setValue={setName}
-          handleSubmit={handleCreateGenre}
-        />
+    <div className="container mt-4 main-cont" style={{ maxWidth: "55rem"  }}>
+    <h2 className="card-title text-center mb-4"  >Manage Genres</h2>
 
-        <br />
+    <h5 className="card-title mb-4" style={{ marginLeft: "1rem"   }}>Add a new genre:</h5>
 
-        <div className="flex flex-wrap">
-          {genres?.map((genre) => (
-            <div key={genre._id}>
-              <button
-                className="bg-white border border-teal-500 text-teal-500 py-2 px-4 rounded-lg m-3 hover:bg-teal-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50"
-                onClick={() => {
-                  {
-                    setModalVisible(true);
-                    setSelectedGenre(genre);
-                    setUpdatingName(genre.name);
-                  }
-                }}
-              >
-                {genre.name}
-              </button>
-            </div>
-          ))}
+    <GenreForm
+      value={name}
+      setValue={setName}
+      handleSubmit={handleCreateGenre}
+    />
+
+    <br />
+
+    <h5 className="card-title mb-4" style={{ marginLeft: "1rem"   }}>Click on a genre to update or delete:</h5>
+
+
+    <div className="row" style={{ marginLeft: "0%"  }}>
+      {genres?.map((genre) => (
+        <div key={genre._id} className="col-md-3">
+          <button
+            className="custom-btn2"
+            onClick={() => {
+              setModalVisible(true);
+              setSelectedGenre(genre);
+              setUpdatingName(genre.name);
+            }}
+          >
+            {genre.name}
+          </button>
         </div>
-
-        <Modal isOpen={modalVisible} onClose={() => setModalVisible(false)}>
-          <GenreForm
-            value={updatingName}
-            setValue={(value) => setUpdatingName(value)}
-            handleSubmit={handleUpdateGenre}
-            buttonText="Update"
-            handleDelete={handleDeleteGenre}
-          />
-        </Modal>
-      </div>
+      ))}
     </div>
-  );
+
+    <Modal isOpen={modalVisible} onClose={() => setModalVisible(false)}>
+      <GenreForm
+        value={updatingName}
+        setValue={(value) => setUpdatingName(value)}
+        handleSubmit={handleUpdateGenre}
+        buttonText="Update"
+        handleDelete={handleDeleteGenre}
+      />
+    </Modal>
+  </div>
+);
 };
+
 
 export default GenreList;

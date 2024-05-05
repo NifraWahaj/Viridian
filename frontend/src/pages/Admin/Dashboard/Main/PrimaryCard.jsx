@@ -1,5 +1,5 @@
 import { useGetUsersQuery } from "../../../../redux/api/users";
-
+/*NOT USED*/
 const PrimaryCard = () => {
   const { data: visitors } = useGetUsersQuery();
 
@@ -12,3 +12,4 @@ const PrimaryCard = () => {
 };
 
 export default PrimaryCard;
+ 

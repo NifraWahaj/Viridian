@@ -1,0 +1,25 @@
+/* GenreList.css */
+.main-cont{
+    margin-top: 5rem !important;
+    max-width: 55rem;
+}
+
+.custom-btn2 {
+    display: inline-block;
+    padding: 0.5rem 1rem; /* Adjust padding for smaller size */
+    font-size: 0.9rem; /* Adjust font size for smaller size */
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #40826d; /* Colored border */
+    border-radius: 0.25rem; /* Adjust border-radius for smaller size */
+    transition: background-color 0.3s, color 0.3s;
+    background-color: transparent; /* Transparent background */
+    color: #40826d; /* Text color */
+  }
+  
+  .custom-btn2:hover {
+    background-color: rgba(62, 126, 106, 0.523); /* Light transparent background on hover */
+  }
+  
