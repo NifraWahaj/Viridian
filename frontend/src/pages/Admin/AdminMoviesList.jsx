@@ -13,31 +13,36 @@ const AdminMoviesList = () => {
           </div>
 
           <div className="row justify-content-around align-items-center p-3">
-            {movies?.map((movie) => (
-              <div key={movie._id} className="col-md-4 mb-4 overflow-hidden">
-                <div className="card shadow">
-                  <img
-                    src={movie.image}
-                    alt={movie.name}
-                    className="card-img-top"
-                    style={{ height: "15rem", objectFit: "cover" }}
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title font-weight-bold">{movie.name}</h5>
-                    <p className="card-text">{movie.detail}</p>
-                  </div>
-                  <div className="card-footer">
-                    <Link
-                      to={`/admin/movies/update/${movie._id}`}
-                      className="btn btn-primary btn-block"
-                    >
-                      Update Movie
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
+  {movies?.map((movie) => {
+    let backendImageUrl = `http://localhost:3000/${movie.image}`;
+    
+    return (
+      <div key={movie._id} className="col-md-4 mb-4 overflow-hidden">
+        <div className="card shadow">
+          <img
+            src={backendImageUrl}
+            alt={movie.name}
+            className="card-img-top"
+            style={{ height: "15rem", objectFit: "cover" }}
+          />
+          <div className="card-body">
+            <h5 className="card-title font-weight-bold">{movie.name}</h5>
+            <p className="card-text">{movie.detail}</p>
           </div>
+          <div className="card-footer">
+            <Link
+              to={`/admin/movies/update/${movie._id}`}
+              className="btn btn-primary btn-block"
+            >
+              Update Movie
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  })}
+</div>
+
         </div>
       </div>
     </div>

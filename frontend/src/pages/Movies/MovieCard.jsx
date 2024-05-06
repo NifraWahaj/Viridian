@@ -3,7 +3,7 @@ import axios from "axios";
 
 const MovieCard = ({ movie }) => {
   // Define the backend image URL
-  const backendImageUrl = `http://localhost:5173/backend/upload/${movie.image}`;
+  const backendImageUrl = `http://localhost:3000/${movie.image}`;
 
   return (
     <div key={movie._id} className="relative group m-[2rem]">

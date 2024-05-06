@@ -13,8 +13,11 @@ const Main = () => {
   const totalCommentsLength = allMovies?.map((m) => m.numReviews);
   const sumOfCommentsLength = totalCommentsLength?.reduce((acc, length) => acc + length, 0);
 
+
   return (
+
     <div>
+      
       <section className="d-flex justify-content-around">
         <div className="increased-margin-left mt-5">
           <div className="d-flex">
@@ -42,15 +45,20 @@ const Main = () => {
             <p>Reviews</p>
           </div>
 
-          {topMovies?.map((movie) => (
-            <VideoCard
-              key={movie._id}
-              image={movie.image}
-              title={movie.name}
-              date={movie.year}
-              comments={movie.numReviews}
-            />
-          ))}
+          {topMovies?.map((movie) => {
+              let backendImageUrl = `http://localhost:3000/${movie.image}`;
+
+              return (
+                <VideoCard
+                  key={movie._id}
+                  image={backendImageUrl}
+                  title={movie.name}
+                  date={movie.year}
+                  comments={movie.numReviews}
+                />
+              );
+            })}
+
         </div>
       </section>
     </div>

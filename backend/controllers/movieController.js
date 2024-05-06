@@ -182,6 +182,31 @@ const getRandomMovies = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+const changeGenreOfMovies = async (req, res) => {
+  try {
+    const { oldGenre, newGenre } = req.body;
+
+    // Find all movies with the old genre
+    const moviesToUpdate = await Movie.find({ genre: oldGenre });
+
+    // Check if any movies with the old genre were found
+    if (moviesToUpdate.length === 0) {
+      return res.status(404).json({ message: `No movies found with genre ${oldGenre}` });
+    }
+
+    // Update the genre of each movie to the new one
+    for (const movie of moviesToUpdate) {
+      movie.genre = newGenre;
+      await movie.save();
+    }
+
+    res.json({ message: `Genre updated successfully for ${moviesToUpdate.length} movies` });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
 
 export {
   createMovie,
@@ -194,4 +219,6 @@ export {
   getNewMovies,
   getTopMovies,
   getRandomMovies,
+  changeGenreOfMovies,
+
 };

@@ -31,6 +31,6 @@ app.use("/api/v1/movies", moviesRoutes);
 app.use("/api/v1/upload", uploadRoutes);
 
 const __dirname = path.resolve();
-app.use("/upload", express.static(path.join(__dirname + "/upload")));
+app.use("/", express.static(path.join(__dirname + "")));
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

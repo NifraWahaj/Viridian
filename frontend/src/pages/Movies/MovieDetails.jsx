@@ -9,11 +9,15 @@ import {
 import MovieTabs from "./MovieTabs";
 
 const MovieDetails = () => {
+
+  
   const { id: movieId } = useParams();
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const { data: movie, refetch } = useGetSpecificMovieQuery(movieId);
+
   const { userInfo } = useSelector((state) => state.auth);
+  
   const [createReview, { isLoading: loadingMovieReview }] =
     useAddMovieReviewMutation();
 
@@ -47,13 +51,16 @@ const MovieDetails = () => {
       </div>
 
       <div className="mt-[2rem]">
-        <div className="flex justify-center items-center">
-          <img
-            src={movie?.image}
-            alt={movie?.name}
-            className="w-[70%] rounded"
-          />
-        </div>
+      <div className="flex justify-center items-center">
+  {movie && (
+    <img
+      src={`http://localhost:3000/${movie.image}`}
+      alt={movie?.name}
+      className="w-[70%] rounded"
+    />
+  )}
+</div>
+
         {/* Container One */}
         <div className="container  flex justify-between ml-[20rem] mt-[3rem]">
           <section>
@@ -96,3 +103,4 @@ const MovieDetails = () => {
 };
 
 export default MovieDetails;
+
