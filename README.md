@@ -26,7 +26,7 @@ CHANGEDD
 - [X] Requirements
 - [X] Database Design
 - [ ] Frontend
-- [ ] Backend
+- [X] Backend
 
 ## Backend Logic Overview
 
