@@ -31,30 +31,29 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style={{ height: '50px', paddingTop: '5px', paddingBottom: '5px' }}>
+    <nav className="navbar navbar-expand-lg navbar-darkfixed-top main-nav-bar " style={{ height: '50px', paddingTop: '5px', paddingBottom: '5px', backgroundColor: '#40826D' }}>
       <div className="container justify-content-center">
         
-      <Link to="/" className="navbar-brand" style={{ fontSize: '1rem', marginRight: '5%', display: 'flex', alignItems: 'center' }}>
-  <AiOutlineHome className="mr-2" size={22} />
-  <span className="d-none d-md-inline">Home</span>
-</Link>
+      <Link to="/" className="navbar-brand" style={{ fontSize: '1.2rem', marginRight: '5%', display: 'flex', alignItems: 'center', color: 'white', fontWeight: 'bold' }}>
+      <AiOutlineHome className="mr-2" size={24} />
+      <span className="d-none d-md-inline">HOME</span>
+      </Link>
 
-<Link to="/movies" className="navbar-brand" style={{ fontSize: '1rem', marginRight: '70%', display: 'flex', alignItems: 'center' }}>
-  <MdOutlineLocalMovies className="mr-2" size={22} />
-  <span className="d-none d-md-inline">Search</span>
-</Link>
+      <Link to="/movies" className="navbar-brand" style={{ fontSize: '1.2rem', marginRight: '70%', display: 'flex', alignItems: 'center',color: 'white', fontWeight: 'bold'  }}>
+        <MdOutlineLocalMovies className="mr-2" size={24} />
+        <span className="d-none d-md-inline">SEARCH</span>
+      </Link>
 
 
-        
         {userInfo ? (
-          <div className="dropdown">
+          <div className="dropdown ">
             <button
               onClick={toggleDropdown}
               className="btn btn-secondary dropdown-toggle"
               type="button"
               id="dropdownMenuButton"
               aria-expanded="false"
-              style={{ fontSize: '1rem', marginRight: '20px' }}
+              style={{ fontSize: '1rem'  }}
             >
               {userInfo.username}
             </button>
@@ -78,14 +77,14 @@ const Navigation = () => {
         ) : (
           <ul className="navbar-nav">
            <li className="nav-item">
-  <Link to="/login" className="nav-link" style={{ fontSize: '1rem', display: 'flex', alignItems: 'center' }}>
-    <AiOutlineLogin className="mr-2" size={20} />
-    <span className="d-none d-md-inline">LOGIN</span>
-  </Link>
-</li>
-
+              <Link to="/login" className="nav-link" style={{ fontSize: '1.2rem', display: 'flex', alignItems: 'center' ,color: 'white', fontWeight: 'bold'  }}>
+                <AiOutlineLogin className="mr-2" size={22} />
+                <span className="d-none d-md-inline">LOGIN</span>
+              </Link>
+            </li>
           </ul>
         )}
+        
       </div>
     </nav>
   );

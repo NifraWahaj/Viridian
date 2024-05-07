@@ -6,6 +6,10 @@ import asyncHandler from "./asyncHandler.js";
 const authenticate = asyncHandler(async (req, res, next) => {
   let token;
 
+/*
+ if authenticate success then pass? else  
+ */
+
   // Read JWT from the 'jwt' cookie
   token = req.cookies.jwt;
 
