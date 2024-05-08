@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+//DONE
 const MovieCard = ({ movie }) => {
   // Define the backend image URL
   const backendImageUrl = `http://localhost:3000/${movie.image}`;

@@ -8,7 +8,7 @@ import {
 import MovieCard from "./MovieCard";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import banner from "../../assets/banner3.jpg";
+import banner from "../../assets/banner7.jpg";
 import {
   setMoviesFilter,
   setFilteredMovies,
@@ -17,7 +17,7 @@ import {
 } from "../../redux/features/movies/moviesSlice";
 import './AllMovies.css'; // Adjust the path as needed
 import { useMediaQuery } from 'react-responsive';
-
+//DONE
 
 const AllMovies = () => {
 
@@ -93,9 +93,8 @@ const AllMovies = () => {
         <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, background: 'linear-gradient(to bottom, #333333 0%, #000000 100%)', opacity: 0.6 }}></div>
 
            
-
             <section  className=" position-absolute">
-            <h1 className="text-8xl font-bold text-light text-center mb-20" style={{ marginTop: '10rem'}} >Viridian</h1>
+            <h1 class="text-center display-1 fw-bold text-light mb-5 mt-12"  style={{ marginTop: '10rem' }}>Viridian</h1>
 
               
 
@@ -109,7 +108,7 @@ const AllMovies = () => {
 
                 style={{ height: '4rem', width: '60vw'}}
               />
-              <section className="sorts-container mt-4 ml-5 w-100"
+              <section className="sorts-container mt-4 w-100"
 >
                 <select
                   className="border p-2 rounded ml-2 text-dark"

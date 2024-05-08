@@ -20,9 +20,9 @@ const Main = () => {
  
     <div>
       
-      <section className="d-flex justify-content-around">
+      <section className="d-flex justify-content-around" style={{marginLeft:'-20rem'}}>
         
-        <div className="increased-margin-left mt-5">
+        <div className=" mt-5 " >
           <div className="d-flex">
             <SecondaryCard
               pill="Users"

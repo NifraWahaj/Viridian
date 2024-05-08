@@ -39,7 +39,7 @@ const Navigation = () => {
       <span className="d-none d-md-inline">HOME</span>
       </Link>
 
-      <Link to="/movies" className="navbar-brand" style={{ fontSize: '1.2rem', marginRight: '70%', display: 'flex', alignItems: 'center',color: 'white', fontWeight: 'bold'  }}>
+      <Link to="/movies" className="navbar-brand" style={{ fontSize: '1.2rem', marginRight: '40%', display: 'flex', alignItems: 'center',color: 'white', fontWeight: 'bold'  }}>
         <MdOutlineLocalMovies className="mr-2" size={24} />
         <span className="d-none d-md-inline">SEARCH</span>
       </Link>

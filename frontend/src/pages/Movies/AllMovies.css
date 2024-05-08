@@ -2,6 +2,9 @@
 .movie-container {
     display: flex;
     flex-wrap: wrap;
+    width: 80vw;
+    margin-left: 10%;
+    
   }
   
   .full-width,
@@ -13,18 +16,19 @@
   }
   
   .full-width {
-    width: 100%; /* Take up full width */
+    width: 15%; /* Take up full width */
   }
   
   .sm-width {
     width: 50%; /* Take up half of the width on small screens */
+    margin-bottom: 5%;
   }
   
   .md-width {
-    width: 60%; /* Take up one-third of the width on medium screens */
+    width: 30%; /* Take up one-third of the width on medium screens */
   }
   
   .lg-width {
-    width: 25%; /* Take up one-fourth of the width on large screens */
+    width: 15%; /* Take up one-fourth of the width on large screens */
   }
   
