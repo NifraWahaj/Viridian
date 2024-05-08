@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   useGetSpecificMovieQuery,
@@ -8,8 +8,9 @@ import {
 } from "../../redux/api/movies";
 import { toast } from "react-toastify";
 import "./UpdateMovie.css"; // Import CSS file
+import Sidebar from "../Admin/Dashboard/Sidebar/Sidebar";
+ 
 
-//DONE
 const UpdateMovie = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -24,6 +25,8 @@ const UpdateMovie = () => {
   });
 
   const [selectedImage, setSelectedImage] = useState(null);
+  const [yearError, setYearError] = useState("");
+
   const { data: initialMovieData } = useGetSpecificMovieQuery(id);
 
   useEffect(() => {
@@ -44,6 +47,16 @@ const UpdateMovie = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    if (name === "year") {
+      const yearValue = parseInt(value, 10);
+      if (yearValue < 1900 || yearValue > 2024 || isNaN(yearValue)) {
+        setYearError("Year must be between 1900 and 2024.");
+      } else {
+        setYearError("");
+      }
+    }
+
     setMovieData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -64,6 +77,11 @@ const UpdateMovie = () => {
         !movieData.cast
       ) {
         toast.error("Please fill in all required fields");
+        return;
+      }
+
+      if (yearError) {
+        toast.error("Please enter a valid year");
         return;
       }
 
@@ -88,6 +106,7 @@ const UpdateMovie = () => {
         id: id,
         updatedMovie: {
           ...movieData,
+          year: parseInt(movieData.year, 10), // Ensure year is converted to number
           image: uploadedImagePath,
         },
       });
@@ -109,10 +128,11 @@ const UpdateMovie = () => {
     }
   };
 
-  return  (
-<div className="container mt-4 outer-container" style={{ maxWidth: "55rem"  }}>
+  return (
+   
+    <div className="container mt-4 outer-container" style={{ maxWidth: "55rem" }}>
       <form>
-      <h2 className="text-center mb-4">Update Movie</h2>
+        <h2 className="text-center mb-4">Update Movie</h2>
 
         <div className="mb-3">
           <label className="form-label">Name:</label>
@@ -131,8 +151,9 @@ const UpdateMovie = () => {
             name="year"
             value={movieData.year}
             onChange={handleChange}
-            className="form-control"
+            className={`form-control ${yearError ? "is-invalid" : ""}`}
           />
+          {yearError && <div className="invalid-feedback">{yearError}</div>}
         </div>
         <div className="mb-3">
           <label className="form-label">Detail:</label>
@@ -187,13 +208,13 @@ const UpdateMovie = () => {
           type="button"
           onClick={handleDeleteMovie}
           className="btn btn-danger ms-2"
-          
           disabled={isUpdatingMovie || isUploadingImage}
         >
           {isUpdatingMovie || isUploadingImage ? "Deleting..." : "Delete Movie"}
         </button>
       </form>
     </div>
-  );
+   );
 };
+
 export default UpdateMovie;

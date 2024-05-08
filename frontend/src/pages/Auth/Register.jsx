@@ -1,4 +1,3 @@
-// register.jsx
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,12 +7,13 @@ import { useRegisterMutation } from "../../redux/api/users";
 import { toast } from "react-toastify";
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS for styling
 import './register.css'; // Import the CSS file
-//DONE
+
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,21 +32,32 @@ const Register = () => {
     }
   }, [navigate, redirect, userInfo]);
 
+  const validatePassword = (password) => {
+    const regex = /^(?=.*\d).{6,}$/;
+    return regex.test(password);
+  };
+
   const submitHandler = async (e) => {
     e.preventDefault();
 
+    if (!validatePassword(password)) {
+      setPasswordError("Password must be at least 6 characters long and contain at least one number.");
+      return;
+    }
+
     if (password !== confirmPassword) {
-      toast.error("Password do not match");
-    } else {
-      try {
-        const res = await register({ username, email, password }).unwrap();
-        dispatch(setCredentials({ ...res }));
-        navigate(redirect);
-        toast.success("User successfully registered.");
-      } catch (err) {
-        console.log(err);
-        toast.error(err.data.message);
-      }
+      setPasswordError("Passwords do not match.");
+      return;
+    }
+
+    try {
+      const res = await register({ username, email, password }).unwrap();
+      dispatch(setCredentials({ ...res }));
+      navigate(redirect);
+      toast.success("User successfully registered.");
+    } catch (err) {
+      console.log(err);
+      toast.error(err.data.message);
     }
   };
 
@@ -91,11 +102,15 @@ const Register = () => {
                   <input
                     type="password"
                     id="password"
-                    className="form-control"
+                    className={`form-control ${passwordError ? 'is-invalid' : ''}`}
                     placeholder="Enter Password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                      setPasswordError("");
+                    }}
                   />
+                  {passwordError && <div className="invalid-feedback">{passwordError}</div>}
                 </div>
                 <div className="mb-3">
                   <label htmlFor="confirmPassword" className="form-label">
@@ -104,18 +119,21 @@ const Register = () => {
                   <input
                     type="password"
                     id="confirmPassword"
-                    className="form-control"
+                    className={`form-control ${passwordError ? 'is-invalid' : ''}`}
                     placeholder="Confirm Password"
                     value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    onChange={(e) => {
+                      setConfirmPassword(e.target.value);
+                      setPasswordError("");
+                    }}
                   />
+                  {passwordError && <div className="invalid-feedback">{passwordError}</div>}
                 </div>
 
                 <button 
                   disabled={isLoading}
                   type="submit"
                   className="btn btn-primary btn-block register-button "
-                 
                 >
                   {isLoading ? "Registering..." : "Register"}
                 </button>

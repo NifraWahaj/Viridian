@@ -3,6 +3,7 @@ import SecondaryCard from "./SecondaryCard";
 import VideoCard from "./VideoCard";
 import { useGetTopMoviesQuery, useGetAllMoviesQuery } from "../../../../redux/api/movies";
 import { useGetUsersQuery } from "../../../../redux/api/users";
+ 
 import "./Main.css"; // Import CSS file for custom styling
 //DONE
 const Main = () => {
@@ -15,7 +16,8 @@ const Main = () => {
 
 
   return (
-
+    <div> 
+ 
     <div>
       
       <section className="d-flex justify-content-around">
@@ -62,6 +64,7 @@ const Main = () => {
 
         </div>
       </section>
+    </div>
     </div>
   );
 };

@@ -47,6 +47,16 @@ const updateGenre = asyncHandler(async (req, res) => {
 const removeGenre = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
+    // Check if any movies exist with this genre before deleting the genre
+    const moviesWithGenre = await Movie.find({ genre: id });
+    console.log("moviesWithGenre "+ moviesWithGenre.name);
+
+    if (moviesWithGenre.length > 0) {
+      console.log("moviesWithGenre "+ moviesWithGenre.length);
+      return res.status(400).json({ message: "Cannot delete genre. Movies with this genre exist." });
+    }
+
+    // If no movies exist with this genre, proceed with deleting the genre
     const removed = await Genre.findByIdAndDelete(id);
 
     if (!removed) {
@@ -56,9 +66,11 @@ const removeGenre = asyncHandler(async (req, res) => {
     res.json(removed);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Interval server error" });
+    //res.status(500).json({ error: "Internal server error" });
   }
 });
+
+   
 
 const listGenres = asyncHandler(async (req, res) => {
   try {
