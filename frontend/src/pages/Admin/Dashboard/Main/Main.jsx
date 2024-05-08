@@ -23,34 +23,28 @@ const Main = () => {
  
     <div>
       
-      <section className="d-flex justify-content-around" style={{marginLeft:'-20rem'}}>
+      <section className="d-flex justify-content-around" style={{}}>
         
         <div className=" mt-5 " >
           <div className="d-flex">
             <SecondaryCard
               pill="Users"
               content={visitors?.length}
-             // info="20.2k more than usual"
-              gradient="bg-primary"
             />
             <SecondaryCard
               pill="Reviews"
               content={sumOfCommentsLength}
-            //  info="742.8 more than usual"
-              gradient="bg-warning"
             />
             <SecondaryCard
               pill="Movies"
               content={allMovies?.length}
-            //  info="372+ more than usual"
-              gradient="bg-success"
             />
           </div>
           <div className="d-flex justify-content-between w-90 text-dark mt-4 font-weight-bold">
-            <p>Top Content</p>
-            <p>Reviews</p>
+            <h4>Top Content</h4>
+            <h4>Reviews</h4>
           </div>
-
+        
           {topMovies?.map((movie) => {
               let backendImageUrl = `http://localhost:3000/${movie.image}`;
 

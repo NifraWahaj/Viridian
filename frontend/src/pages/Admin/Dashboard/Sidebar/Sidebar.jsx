@@ -12,7 +12,8 @@ style={{marginLeft:'20rem'}}>
       style={{marginLeft:'2rem', paddingRight:'1rem', width:'10rem'}}
       
       >
-        <Link to="/admin/movies/create" className="btn sidebar-btn" style={{ backgroundColor:'#40826D', color:'#e2e2e2', borderRadius:'5px'}}>
+        <Link to="/admin/movies/create" className="btn sidebar-btn" style={{ backgroundColor:'#40826D', 
+        color:'#e2e2e2', borderRadius:'5px'}}>
           Create Movie
         </Link>
       </li>
@@ -24,7 +25,8 @@ style={{marginLeft:'20rem'}}>
       </li>
       <li className="text-lg me-3"
       style={{marginLeft:'2rem', paddingRight:'1rem', width:'10rem'}}>
-        <Link to="/admin/movies-list" className="btn sidebar-btn" style={{ backgroundColor:'#40826D', color:'#e2e2e2', borderRadius:'5px'}}>
+        <Link to="/admin/movies-list" className="btn sidebar-btn" style={{ backgroundColor:'#40826D', color:'#e2e2e2',
+        borderRadius:'5px'}}>
           Manage Movie
         </Link>
       </li>

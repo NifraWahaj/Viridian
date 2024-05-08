@@ -15,8 +15,11 @@ const VideoCard = ({ image, title, date, comments }) => {
 
               <div class="col-sm-7">
               <div className="card-body" style={{ height: "100%",width: "79%", }}>
-                <h5 className="card-title font-weight-bolder text-dark" style={{ marginBottom: "10px" }}>{title}</h5>
-                <p className="card-text text-dark" style={{ marginBottom: "10px" }}>{date}</p>
+                <h5 className="card-title font-weight-bolder text-dark" style={{ marginBottom: "10px" , 
+                fontSize:'2rem', fontWeight:'bolder'}}>{title}</h5>
+                <p className="card-text text-dark" style={{ marginBottom: "10px" ,
+                   fontSize:'1.5rem'
+              }}>{date}</p>
               </div>
               </div>
 
@@ -28,7 +31,7 @@ const VideoCard = ({ image, title, date, comments }) => {
         </div>
         </div>
         <div class="col-sm-5">
-        <div className="text-dark text-lg " style={{ marginLeft:'140%', marginTop: '25%'}}>{comments}</div>
+        <div className="text-dark text-lg " style={{ marginLeft:'140%', marginTop: '29%', fontWeight:'bold', fontSize:'1.5rem'}}>{comments}</div>
         </div>
 
     </div>

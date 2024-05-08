@@ -10,7 +10,7 @@ const MovieTabs = ({ userInfo, submitHandler, comment, setComment, movie }) => {
                   <form onSubmit={submitHandler}>
                   <div className="my-1">
                     <label htmlFor="comment" className="block text-xl mb-2"
-                    style={{ fontWeight:"bold", marginLeft:'15rem'}}>
+                    style={{ fontWeight:"bold", marginLeft:'10rem'}}>
                       Write Your Review
                     </label>
 
@@ -29,7 +29,7 @@ const MovieTabs = ({ userInfo, submitHandler, comment, setComment, movie }) => {
                   <button
                     type="submit"
                     className="btn py-2 px-4 rounded-lg submit-btn-review"
-                    style={{  marginLeft:'15rem'}}
+                    style={{  marginLeft:'10rem'}}
                   >
                     Submit
                   </button>
@@ -51,15 +51,17 @@ const MovieTabs = ({ userInfo, submitHandler, comment, setComment, movie }) => {
    
   </div>
   <div className="myrow">
-      
-      <div className="d-flex justify-content-center align-items-center" style={{  }}>
-        <div>
-          {movie?.reviews.length === 0 && <p className='review-p2 '>No Reviews</p>}
-        </div>
-      </div>
-      <h2 className="text-2xl my-2 "  
+  <h2 className="text-2xl my-2 "  
                       style={{ fontWeight: "bolder", marginLeft:'10%'}}>Reviews:
                     </h2>
+      <div className="d-flex justify-content-center align-items-center" style={{  }}>
+        <div>
+          {movie?.reviews.length === 0 && <p className='review-p2 '
+          style={{  fontSize:'1.2rem'}}
+          >No Reviews</p>}
+        </div>
+      </div>
+     
     <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' , marginTop:'-12rem'}}>
    
           {movie?.reviews.map((review) => (
