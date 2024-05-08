@@ -1,5 +1,5 @@
 import React from "react";
-//DONE
+
 const Modal = ({ isOpen, onClose, children }) => {
   return (
     <>

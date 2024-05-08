@@ -3,8 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MovieCard from "../pages/Movies/MovieCard";
-//DONE
-const SliderUtil = ({ data }) => {
+ const SliderUtil = ({ data }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -16,7 +15,7 @@ const SliderUtil = ({ data }) => {
   return (
     <Slider {...settings}>
       {data?.map((movie) => (
-        <div key={movie._id} className="px-2"> {/* Adjust padding as needed */}
+        <div key={movie._id} className="px-2"> 
           <MovieCard movie={movie} />
         </div>
       ))}

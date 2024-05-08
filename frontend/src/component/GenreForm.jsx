@@ -1,6 +1,5 @@
 import { useState } from "react";
-import "./genreForm.css"; // Import CSS file
-//DONE
+import "./genreForm.css";  
 const GenreForm = ({
   value,
   setValue,

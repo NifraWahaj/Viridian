@@ -5,8 +5,7 @@ import { useGetTopMoviesQuery, useGetAllMoviesQuery } from "../../../../redux/ap
 import { useGetUsersQuery } from "../../../../redux/api/users";
 import Sidebar from "../Sidebar/Sidebar";
 
-import "./Main.css"; // Import CSS file for custom styling
-//DONE
+import "./Main.css";  
 const Main = () => {
   const { data: topMovies } = useGetTopMoviesQuery();
   const { data: visitors } = useGetUsersQuery();

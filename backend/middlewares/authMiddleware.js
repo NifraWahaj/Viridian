@@ -8,9 +8,10 @@ const authenticate = asyncHandler(async (req, res, next) => {
 
 /*
  if authenticate success then pass? else  
+
  */
 
-  // Read JWT from the 'jwt' cookie
+  // Reading JWT from the 'jwt' cookie
   token = req.cookies.jwt;
 
   if (token) {

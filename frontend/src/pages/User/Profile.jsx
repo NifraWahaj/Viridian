@@ -6,12 +6,12 @@ import { useProfileMutation } from "../../redux/api/users";
 import { setCredentials } from "../../redux/features/auth/authSlice";
 import './profile.css'; // Import the CSS file
 
+
 const Profile = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordError, setPasswordError] = useState("");
 
   const { userInfo } = useSelector((state) => state.auth);
 
@@ -28,15 +28,9 @@ const Profile = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    // Password validation regex: At least 6 characters long and at least 1 number
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
-
     if (password !== confirmPassword) {
       toast.error("Passwords do not match");
-    } else if (!password.match(passwordRegex)) {
-      setPasswordError("Password must be at least 6 characters long and contain at least 1 number");
     } else {
-      setPasswordError(""); // Reset password error
       try {
         const res = await updateProfile({
           _id: userInfo._id,
@@ -54,7 +48,7 @@ const Profile = () => {
 
   return (
     <div>
-      <div className="container mt-5">
+      <div className="container mt-5" >
         <div className="row justify-content-center" style={{ marginTop: "4rem" }}>
           <div className="col-md-6">
             <h2 className="text-center mb-4">Update Profile</h2>
@@ -92,7 +86,6 @@ const Profile = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                {passwordError && <p className="text-danger">{passwordError}</p>}
               </div>
               <div className="mb-3">
                 <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
@@ -107,13 +100,13 @@ const Profile = () => {
               </div>
 
               <div className="d-grid gap-2">
-                <button
-                  type="submit"
-                  className="btn btn-primary mt-3 update-button"
-                  disabled={loadingUpdateProfile}
-                >
-                  Update
-                </button>
+              <button
+      type="submit"
+      className="btn btn-primary mt-3 update-button"
+    >
+      Update
+    </button>
+
                 {loadingUpdateProfile && <Loader />}
               </div>
             </form>

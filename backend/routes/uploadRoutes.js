@@ -3,7 +3,7 @@ import express from "express";
 import multer from "multer";
 
 const router = express.Router();
-console.log("i am inside uplaodng ")
+console.log("i am inside uploading ")
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "backend/upload/");
@@ -31,8 +31,7 @@ const fileFilter = (req, file, cb) => {
 
 const upload = multer({ storage, fileFilter });
 const uploadSingleImage = upload.single("image");
-console.log("came inside upload image route ");
-router.post("/", (req, res) => {
+ router.post("/", (req, res) => {
   uploadSingleImage(req, res, (err) => {
     if (err) {
       res.status(400).send({ message: err.message });

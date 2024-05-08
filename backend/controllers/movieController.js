@@ -1,27 +1,23 @@
 import Movie from "../models/Movie.js";
-// Import express
-import express from 'express';
+ import express from 'express';
 import bodyParser from 'body-parser';
 
-// Create an Express app
-  console.log("i ahave reached inside moviecontroller ");
+ 
  
 
 const createMovie = async (req, res) => {
   try {
-    console.log("Request Body:", req.body); // Log the request body
+    console.log("Request Body:", req.body);  
 
     const newMovie = new Movie(req.body);
-    console.log("Movie Object:", newMovie); // Log the created movie object
-
+    console.log("Movie Object:", newMovie);  
     const savedMovie = await newMovie.save();
-    console.log("Saved Movie:", savedMovie); // Log the saved movie object
-
+    console.log("Saved Movie:", savedMovie);  
     res.json(savedMovie);
-    console.log("Response sent successfully"); // Log successful response
+    console.log("Response sent successfully"); 
   } catch (error) {
-    console.error("Error:", error); // Log the error
-    res.status(500).json({ error: "Internal Server Error" }); // Send a generic error response
+    console.error("Error:", error); 
+    res.status(500).json({ error: "Internal Server Error" }); 
   }
 };
 
