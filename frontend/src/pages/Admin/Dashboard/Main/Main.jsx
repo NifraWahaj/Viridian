@@ -19,6 +19,7 @@ const Main = () => {
     <div>
       
       <section className="d-flex justify-content-around">
+        
         <div className="increased-margin-left mt-5">
           <div className="d-flex">
             <SecondaryCard

@@ -6,6 +6,8 @@ import {
 } from "../../redux/api/movies";
 import { useFetchGenresQuery } from "../../redux/api/genre";
 import SliderUtil from "../../component/SliderUtil";
+import banner from "../../assets/banner.jpg";
+
 
 const MoviesContainerPage = () => {
   const { data } = useGetNewMoviesQuery();
@@ -24,25 +26,37 @@ const MoviesContainerPage = () => {
   );
 
   return (
-    <div className="d-flex flex-column lg-flex-row lg-justify-between items-center">
+
+    <div  style={{ marginLeft:'3rem',marginRight:'3rem'}}>
       
-      <h1 > Explore, Rate, and Discover the Best Films </h1>
+      
+      
+    <div className="d-flex flex-column lg-flex-row lg-justify-between items-center"
+    >
+       <div className="position-relative mb-3 d-flex align-items-center justify-content-center bg-cover" 
+        style={{ height: "40rem", backgroundImage: `url(${banner})`, width: '100vw' , marginTop:'-11rem'}}> 
+        <div style={{ marginTop: "5rem", color:'#f2f2f2', zIndex:'1', textAlign: 'center'}}>
+          <h1 style={{ fontWeight: 'bolder', fontSize:'10rem'}}> VIRIDIAN </h1>
+          <h2 > Explore, Rate, and Discover the Best Films </h2>
+        </div>
+        <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, background: 'linear-gradient(to bottom, #333333 0%, #000000 100%)', opacity: 0.6 }}></div>
+        </div>
+      
       <section className="d-flex flex-column justify-center items-center w-100 lg-w-auto">
         <div className="w-100 lg-w-100rem mb-8 ">
-          <h1  class="text-5xl my-4 font-extrabold">Choose For You</h1>
+        <h1 className="text-4xl my-4 font-bold" style={{ color: '#38715f' }}>Choose For You</h1>
           <SliderUtil data={randomMovies} />
         </div>
 
+        
         <div className="w-100 lg-w-100rem mb-8">
-          <h1  class="text-5xl my-4 font-extrabold">Top Movies</h1>
+          <h1  className="text-4xl my-4 font-bold" style={{ color: '#38715f' }}>Top Movies</h1>
           <SliderUtil data={topMovies} />
         </div>
 
-        <div className="w-100 lg-w-100rem mb-8">
-          <h1  class="text-5xl my-4 font-extrabold">Choose Movie</h1>
-          <SliderUtil data={filteredMovies} />
-        </div>
+      
       </section>
+    </div>
     </div>
   );
 };

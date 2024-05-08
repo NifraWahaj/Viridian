@@ -7,7 +7,7 @@ const MovieCard = ({ movie }) => {
 
   return (
     <div className="custom-card-spacing"> {/* Use custom class */}
-      <div className="card h-50">
+      <div className="card h-40">
         <Link to={`/movies/${movie._id}`} className="text-decoration-none">
           <img
             src={backendImageUrl}
@@ -16,8 +16,8 @@ const MovieCard = ({ movie }) => {
             style={{}}
           />
           <div className="card-body">
-            <h5 className="card-title">{movie.name}</h5>
-            <p className="card-text">Releasing Year: {movie.year}</p>
+          <h5 className="card-title font-weight-bolder text-dark">{movie.name}</h5>
+            <p className="card-text text-dark">{movie.year}</p>
           </div>
         </Link>
       </div>
