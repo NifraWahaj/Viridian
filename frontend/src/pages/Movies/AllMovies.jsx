@@ -78,14 +78,15 @@ const AllMovies = () => {
       <>
         <section>
           <div
-            className="relative h-[50rem] w-screen mb-10 flex items-center justify-center bg-cover"
+            className="relative h-[50rem] w-screen mb-15 flex items-center justify-center bg-cover"
             style={{ backgroundImage: `url(${banner})` }}
           >
             <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-black opacity-60"></div>
 
             <div className="relative z-10 text-center text-white mt-[10rem]">
-              <h1 className="text-8xl font-bold mb-4">Viridian  </h1>
+              <h1 className="text-8xl font-bold mb-4">Viridian</h1>
               <p className="text-2xl">
+                Cinematic Odyssey: Unveiling the Magic of Movies
               </p>
             </div>
 
