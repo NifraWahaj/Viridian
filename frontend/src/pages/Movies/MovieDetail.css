@@ -1,0 +1,9 @@
+.circle {
+    width: 7px; /* Adjust the size of the circle */
+    height: 7px;
+    background-color: #40826D; /* Adjust the color of the circle */
+    border-radius: 50%; /* Make it round */
+    display: inline-block;
+    margin-right: 10px; /* Adjust the spacing between the circle and the text */
+  }
+  

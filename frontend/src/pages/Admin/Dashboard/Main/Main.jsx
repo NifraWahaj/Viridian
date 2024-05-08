@@ -3,7 +3,8 @@ import SecondaryCard from "./SecondaryCard";
 import VideoCard from "./VideoCard";
 import { useGetTopMoviesQuery, useGetAllMoviesQuery } from "../../../../redux/api/movies";
 import { useGetUsersQuery } from "../../../../redux/api/users";
- 
+import Sidebar from "../Sidebar/Sidebar";
+
 import "./Main.css"; // Import CSS file for custom styling
 //DONE
 const Main = () => {
@@ -16,7 +17,9 @@ const Main = () => {
 
 
   return (
+    
     <div> 
+      
  
     <div>
       

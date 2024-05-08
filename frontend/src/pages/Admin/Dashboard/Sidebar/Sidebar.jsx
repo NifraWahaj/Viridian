@@ -3,52 +3,44 @@ import "./sidebar.css"; // Import CSS file for custom styling
 //DONE
 const Sidebar = () => {
   return (
-    <div className="flex h-screen fixed mt-10 border-r-2 border-[#242424]">
-      <aside className="text-white w-64 flex-shrink-0">
-        <ul className="list-unstyled">
-          <li className="text-lg mb-3">
-            <Link
-              to="/admin/movies/dashboard"
-              className="btn btn-dark btn-block sidebar-btn"
-            >
-              Dashboard
-            </Link>
-          </li>
-          <li className="text-lg mb-3">
-            <Link
-              to="/admin/movies/create"
-              className="btn btn-dark btn-block sidebar-btn"
-            >
-              Create Movie
-            </Link>
-          </li>
-          <li className="text-lg mb-3">
-            <Link
-              to="/admin/movies/genre"
-              className="btn btn-dark btn-block sidebar-btn"
-            >
-              Create Genre
-            </Link>
-          </li>
-          <li className="text-lg mb-3">
-            <Link
-              to="/admin/movies-list"
-              className="btn btn-dark btn-block sidebar-btn"
-            >
-              Update Movie
-            </Link>
-          </li>
-          <li className="text-lg mb-3">
-            <Link
-              to="/admin/movies/comments"
-              className="btn btn-dark btn-block sidebar-btn"
-            >
-              Comments
-            </Link>
-          </li>
-        </ul>
-      </aside>
-    </div>
+
+<div className="container d-flex justify-content-center mt-10"
+style={{marginLeft:'20rem'}}>
+  <nav className="d-flex w-100 w-md-25 flex-shrink-0">
+    <ul className="list-unstyled d-flex flex-row">
+      <li className="text-lg me-3"
+      style={{marginLeft:'2rem', paddingRight:'1rem', width:'10rem'}}
+      
+      >
+        <Link to="/admin/movies/create" className="btn sidebar-btn" style={{ backgroundColor:'#40826D', color:'#e2e2e2', borderRadius:'5px'}}>
+          Create Movie
+        </Link>
+      </li>
+      <li className="text-lg me-3"
+      style={{marginLeft:'2rem', paddingRight:'1rem', width:'10rem'}}>
+        <Link to="/admin/movies/genre" className="btn sidebar-btn" style={{ backgroundColor:'#40826D', color:'#e2e2e2', borderRadius:'5px'}}>
+          Manage Genre
+        </Link>
+      </li>
+      <li className="text-lg me-3"
+      style={{marginLeft:'2rem', paddingRight:'1rem', width:'10rem'}}>
+        <Link to="/admin/movies-list" className="btn sidebar-btn" style={{ backgroundColor:'#40826D', color:'#e2e2e2', borderRadius:'5px'}}>
+          Manage Movie
+        </Link>
+      </li>
+      <li className="text-lg"
+      style={{marginLeft:'2rem', paddingRight:'1rem', width:'10rem'}}>
+        <Link to="/admin/movies/comments" className="btn sidebar-btn" style={{ backgroundColor:'#40826D', color:'#e2e2e2', borderRadius:'5px'}}>
+          Review
+        </Link>
+      </li>
+    </ul>
+    
+  </nav>
+
+</div>
+
+
   );
 };
 

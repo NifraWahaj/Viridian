@@ -5,6 +5,7 @@ import {
   useDeleteGenreMutation,
   useFetchGenresQuery,
 } from "../../redux/api/genre";
+import { Link } from "react-router-dom";
 
 import { toast } from "react-toastify";
 import GenreForm from "../../component/GenreForm";
@@ -98,6 +99,13 @@ const GenreList = () => {
 
   return (
     <div className="container mt-4 main-cont" style={{ maxWidth: "55rem"  }}>
+           <div>
+    <Link to="/admin/movies/dashboard" className=" font-weight-bold text-decoration-none ml-5"
+    style={{backgroundColor:'#40826D',color:'#ffffff', padding:'2%', borderRadius:'5px', marginLeft:'0rem'}}>
+      Go Back
+    </Link>
+  </div>
+
     <h2 className="card-title text-center mb-4"  >Manage Genres</h2>
 
     <h5 className="card-title mb-4" style={{ marginLeft: "1rem"   }}>Add a new genre:</h5>

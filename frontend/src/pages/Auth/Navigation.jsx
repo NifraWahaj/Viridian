@@ -32,6 +32,7 @@ const Navigation = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-darkfixed-top main-nav-bar " style={{ height: '50px', paddingTop: '5px', paddingBottom: '5px', backgroundColor: '#40826D' }}>
+      
       <div className="container justify-content-center">
         
       <Link to="/" className="navbar-brand" style={{ fontSize: '1.2rem', marginRight: '5%', display: 'flex', alignItems: 'center', color: 'white', fontWeight: 'bold' }}>

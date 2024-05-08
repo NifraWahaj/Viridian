@@ -4,6 +4,7 @@ import { useCreateMovieMutation, useUploadImageMutation } from "../../redux/api/
 import { useFetchGenresQuery } from "../../redux/api/genre";
 import { toast } from "react-toastify";
 import "./createMovie.css"; // Import CSS file
+import { Link } from "react-router-dom";
 
 const CreateMovie = () => {
   const navigate = useNavigate();
@@ -128,6 +129,13 @@ const CreateMovie = () => {
 
   return (
     <div className="container mt-4 create-movie-container" style={{ maxWidth: "600px" }}>
+       <div>
+    <Link to="/admin/movies/dashboard" className=" font-weight-bold text-decoration-none ml-5"
+    style={{backgroundColor:'#40826D',color:'#ffffff', padding:'2%', borderRadius:'5px', marginLeft:'0rem'}}>
+      Go Back
+    </Link>
+  </div>
+
       <form>
         <h2 className="card-title text-center mb-4">Create Movie</h2>
 
