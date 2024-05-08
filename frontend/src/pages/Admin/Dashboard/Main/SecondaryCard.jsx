@@ -1,4 +1,4 @@
-//DONE
+
 import React from "react";
 
 const SecondaryCard = ({ pill, content, info, gradient }) => {

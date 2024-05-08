@@ -1,4 +1,3 @@
-/* createMovie.css */
 
 .create-movie-button {
     background-color: #40826D;
@@ -16,5 +15,5 @@
   }
 
   .create-movie-container {
-    margin-top:5% !important; /* Adjust the margin-top value as needed */
+    margin-top:5% !important;  
   }

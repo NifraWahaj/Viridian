@@ -77,7 +77,7 @@ const MovieDetails = () => {
                       <ul className="list-unstyled">
   {movie?.cast.map((c) => (
     <li key={c._id} className="mt-3">
-      <div className="circle"></div> {/* Circle marker */}
+      <div className="circle"></div>  
       {c}
     </li>
   ))}

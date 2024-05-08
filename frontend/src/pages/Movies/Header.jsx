@@ -1,7 +1,7 @@
 import SliderUtil from "../../component/SliderUtil";
 import { useGetNewMoviesQuery } from "../../redux/api/movies";
 import { Link } from "react-router-dom";
-{/*NOT BEING USED. TO BE REMOVED*/}
+{/*Deprecated*/}
 const Header = () => {
   const { data } = useGetNewMoviesQuery();
 

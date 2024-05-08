@@ -2,17 +2,19 @@
 
 Social cataloging application: where users log watched films, rate and review them, create personalized lists, and contribute to a community-centric environment. It additionally features a watchlist for planning future viewings, detailed film information, and customizable profiles.
 
-CHANGEDD
-
+ 
 ## Features
 
-- Movie logging and tracking
-- Rating and reviewing films
-- Creating personalized lists
-- Community interactions and discussions
-- Watchlist for future viewings
-- Detailed film information
-- Customizable user profiles
+### Admin:
+- **Genre Management**: Create, Read, Update, and Delete (CRUD) genres.
+- **Movie Management**: CRUD operations for movies.
+- **Dashboard Insights**: View reviews, total number of users, and top-rated movies.
+
+### User:
+- **Review Submission**: Users can add reviews for movies.
+- **Search Functionality**: Search for movies and sort results by new, random, or top content.
+- **Advanced Search**: Filter movies by genre and year.
+- **Profile Management**: Users can update their profile information including password, name, and email.
 
 ## Technologies Used
 
@@ -25,7 +27,7 @@ CHANGEDD
 
 - [X] Requirements
 - [X] Database Design
-- [ ] Frontend
+- [X] Frontend
 - [X] Backend
 
 ## Backend Logic Overview

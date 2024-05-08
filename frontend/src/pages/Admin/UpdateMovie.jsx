@@ -7,7 +7,7 @@ import {
   useDeleteMovieMutation,
 } from "../../redux/api/movies";
 import { toast } from "react-toastify";
-import "./UpdateMovie.css"; // Import CSS file
+import "./UpdateMovie.css"; 
 import Sidebar from "../Admin/Dashboard/Sidebar/Sidebar";
  
 
@@ -106,7 +106,7 @@ const UpdateMovie = () => {
         id: id,
         updatedMovie: {
           ...movieData,
-          year: parseInt(movieData.year, 10), // Ensure year is converted to number
+          year: parseInt(movieData.year, 10), 
           image: uploadedImagePath,
         },
       });

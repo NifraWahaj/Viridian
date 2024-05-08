@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useCreateMovieMutation, useUploadImageMutation } from "../../redux/api/movies";
 import { useFetchGenresQuery } from "../../redux/api/genre";
 import { toast } from "react-toastify";
-import "./createMovie.css"; // Import CSS file
+import "./createMovie.css"; 
 import { Link } from "react-router-dom";
 
 const CreateMovie = () => {
@@ -103,7 +103,7 @@ const CreateMovie = () => {
 
         await createMovie({
           ...movieData,
-          year: parseInt(movieData.year, 10), // Ensure year is converted to number
+          year: parseInt(movieData.year, 10), 
           image: uploadedImagePath,
         });
 

@@ -4,8 +4,7 @@ import { toast } from "react-toastify";
 import Loader from "../../component/Loader";
 import { useProfileMutation } from "../../redux/api/users";
 import { setCredentials } from "../../redux/features/auth/authSlice";
-import './profile.css'; // Import the CSS file
-
+import './profile.css';  
 
 const Profile = () => {
   const [username, setUsername] = useState("");
