@@ -123,7 +123,7 @@ const GenreList = () => {
 
     <div className="row" style={{ marginLeft: "0%"  }}>
       {genres?.map((genre) => (
-        <div key={genre._id} className="col-md-3">
+        <div key={genre._id} className="col-md-3 mt-3">
           <button
             className="custom-btn2"
             onClick={() => {

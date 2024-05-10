@@ -155,7 +155,7 @@ const AllMovies = () => {
           </div>
 
          
-          <section className="movie-container">
+          <section className="movie-container" style={{ marginLeft: '9rem' }}>
         {filteredMovies?.map((movie) => (
           <div
             key={movie._id}
