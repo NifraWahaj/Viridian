@@ -3,7 +3,7 @@ import Genre from "../models/Genre.js";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect("mongodb+srv://smartCarpool_team:1izZO8RKbs2KVaLQ@cluster0.dc9ks.mongodb.net/viridian");
     console.log(`Successfully connected to MongoDB 👍`);
 
     // Check if "Other" genre already exists
@@ -18,8 +18,7 @@ const connectDB = async () => {
       console.log('Genre "Other" already exists.');
     }
   } catch (error) {
-    console.error(`Error: ${error.message}```);
-    process.exit(1);
+     process.exit(1);
   }
 };
 

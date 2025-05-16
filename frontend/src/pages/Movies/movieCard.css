@@ -15,3 +15,15 @@
     margin-bottom: 20px; /* Adjust margin bottom as needed */
   }
   
+  .movie-title {
+    white-space: normal; /* allows text to wrap */
+    word-wrap: break-word; /* breaks long words */
+    overflow-wrap: break-word;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    padding: 0 10px; /* prevent touching edges */
+    height: 48px; /* Optional: Fixed height for uniformity */
+    overflow: hidden;
+  }
+  

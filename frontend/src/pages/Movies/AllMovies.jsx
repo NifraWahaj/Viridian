@@ -156,20 +156,16 @@ const AllMovies = () => {
 
          
           <section className="movie-container" style={{ marginLeft: '9rem' }}>
-        {filteredMovies?.map((movie) => (
-          <div
-            key={movie._id}
-            className={`${
-              isSmallScreen ? 'sm-width' :
-              isMediumScreen ? 'md-width' :
-              isLargeScreen ? 'lg-width' :
-              'full-width'
-            }`}
-          >
-            <MovieCard movie={movie} />
-          </div>
-        ))}
-      </section>
+  {filteredMovies?.map((movie) => (
+    <div
+      key={movie._id}
+      className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" // Bootstrap responsive grid
+    >
+      <MovieCard movie={movie} />
+    </div>
+  ))}
+</section>
+
 
 
 

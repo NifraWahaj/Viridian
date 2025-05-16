@@ -1,26 +1,28 @@
 import { Link } from "react-router-dom";
 import { useGetAllMoviesQuery } from "../../redux/api/movies";
-import Sidebar from "./Dashboard/Sidebar/Sidebar";
+import MovieCard from "../Movies/MovieCard"; // adjust the path as needed
 
 const AdminMoviesList = () => {
   const { data: movies } = useGetAllMoviesQuery();
 
   return (
     <>
-      <Link
-        to="/admin/movies/dashboard"
-        className="font-weight-bold text-decoration-none ml-5"
-        style={{
-          backgroundColor: '#40826D',
-          color: '#ffffff',
-          padding: '1%',
-          borderRadius: '5px',
-          marginLeft: '5rem',
-          marginTop: '3rem'
-        }}
-      >
-        Go Back
-      </Link>
+    <div className="container mt-4">
+  <Link
+    to="/admin/movies/dashboard"
+    className="btn font-weight-bold text-white"
+    style={{
+      backgroundColor: '#40826D',
+      borderRadius: '5px',
+      position:"relative",
+      marginLeft:"0rem"
+    }}
+  >
+    Go Back
+  </Link>
+</div>
+
+
       <div className="container mx-5">
         <div className="row">
           <div className="col-md-12">
@@ -29,33 +31,22 @@ const AdminMoviesList = () => {
             </div>
 
             <div className="row justify-content-around align-items-center p-3">
-              {movies?.map((movie) => {
-                let backendImageUrl = `http://localhost:3000/${movie.image}`;
-                return (
-                  <div key={movie._id} className="col-md-4 mb-4 overflow-hidden">
-                    <div className="card shadow">
-                      <img
-                        src={backendImageUrl}
-                        alt={movie.name}
-                        className="card-img-top"
-                        style={{ height: "15rem"}}
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title font-weight-bold">{movie.name}</h5>
-                      </div>
-                      <div className="card-footer">
-                        <Link
-                          to={`/admin/movies/update/${movie._id}`}
-                          className="btn btn-block"
-                          style={{ backgroundColor:'#40826D', color:'#e2e2e2', borderRadius:'5px'}}
-                        >
-                          Update Movie
-                        </Link>
-                      </div>
-                    </div>
+              {movies?.map((movie) => (
+                <div key={movie._id} className="col-md-4 mb-4 overflow-hidden">
+                  <MovieCard movie={movie} />
+
+                  {/* Optional: Add Update Button Outside Card */}
+                  <div className="mt-2 text-center">
+                    <Link
+                      to={`/admin/movies/update/${movie._id}`}
+                      className="btn btn-sm"
+                      style={{ backgroundColor:'#40826D', color:'#fff', borderRadius:'5px'}}
+                    >
+                      Update Movie
+                    </Link>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -48,6 +48,8 @@ const Main = () => {
               let backendImageUrl = `http://localhost:3000/${movie.image}`;
 
               return (
+                <div key={movie._id} className="mb-4"> {/* Adds vertical space */}
+
                 <VideoCard
                   key={movie._id}
                   image={backendImageUrl}
@@ -55,6 +57,7 @@ const Main = () => {
                   date={movie.year}
                   comments={movie.numReviews}
                 />
+                </div>
               );
             })}
 
